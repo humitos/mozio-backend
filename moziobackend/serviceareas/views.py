@@ -1,4 +1,7 @@
 from rest_framework import viewsets
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from django.contrib.gis.geos import Point
 from serviceareas.models import Provider, ServiceArea
 from serviceareas.serializers import ProviderSerializer, ServiceAreaSerializer
 
@@ -21,6 +24,13 @@ class ServiceAreaViewSet(viewsets.ModelViewSet):
     serializer_class = ServiceAreaSerializer
 
 
-# class ServiceAreaForPoint():
+class ServiceAreaForPoint(APIView):
+    """
+    List all snippets, or create a new snippet.
+    """
 
-    
+    def get(self, request, lat, lng, format=None):
+        point = Point(float(lng), float(lat))
+        serviceareas = ServiceArea.objects.filter(polygon__contains=point)
+        serializer = ServiceAreaSerializer(serviceareas, many=True)
+        return Response(serializer.data)

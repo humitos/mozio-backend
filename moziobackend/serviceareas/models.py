@@ -21,6 +21,3 @@ class ServiceArea(models.Model):
 
     def __str__(self):
         return self.name
-
-# providers.objects.filter(servicearea_set__polygon__within=point)
-# servicearea.objects.filter(polygon__within=point)
