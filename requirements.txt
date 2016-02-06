@@ -1,10 +1,5 @@
 django
 djangorestframework
 djangorestframework-gis
-django-debug-toolbar
-pep8
-pyflakes
-django-extensions
 psycopg2
-jedi
 django-phonenumber-field
