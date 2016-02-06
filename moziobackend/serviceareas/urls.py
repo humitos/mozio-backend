@@ -3,8 +3,8 @@ from rest_framework import routers
 from serviceareas import views
 
 router = routers.DefaultRouter()
-router.register(r'provider', views.ProviderViewSet)
-router.register(r'servicearea', views.ServiceAreaViewSet)
+router.register(r'provider', views.ProviderViewSet, 'provider')
+router.register(r'servicearea', views.ServiceAreaViewSet, 'servicearea')
 
 urlpatterns = [
     url(r'^', include(router.urls)),
@@ -12,6 +12,6 @@ urlpatterns = [
                                namespace='rest_framework')),
 
     # lat/lng regex from http://stackoverflow.com/a/3518546
-    url(r'point/(?P<lat>(\-?\d+(\.\d+)?))/(?P<lng>(\-?\d+(\.\d+)?))/$',
+    url(r'^point/(?P<lat>(\-?\d+(\.\d+)?))/(?P<lng>(\-?\d+(\.\d+)?))/$',
         views.ServiceAreaForPoint.as_view()),
 ]

@@ -9,10 +9,16 @@ class ProviderSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('name', 'email', 'phone', 'language', 'currency')
 
 
-class ServiceAreaSerializer(GeoFeatureModelSerializer):
-    provider = ProviderSerializer()
+class ServiceAreaSerializer(serializers.HyperlinkedModelSerializer):
+    provider = serializers.StringRelatedField()
 
     class Meta:
         model = ServiceArea
+        fields = ('name', 'provider', 'price')
+
+
+class ServiceAreaCreateSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = ServiceArea
         geo_field = 'polygon'
-        fields = ('name', 'price', 'polygon', 'provider')
+        fields = ('name', 'provider', 'polygon', 'price')
