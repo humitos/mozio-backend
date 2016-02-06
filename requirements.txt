@@ -1,5 +1,8 @@
-django
-djangorestframework
-djangorestframework-gis
-psycopg2
-django-phonenumber-field
+Babel==2.2.0
+Django==1.9.2
+django-phonenumber-field==1.0.0
+djangorestframework==3.3.2
+djangorestframework-gis==0.10.1
+phonenumbers==7.2.4
+psycopg2==2.6.1
+pytz==2015.7
