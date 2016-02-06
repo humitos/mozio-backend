@@ -110,5 +110,5 @@ curl \
 curl \
  --request GET \
  -H 'Accept: application/json; indent=4' \
- -u admin:6wrGfPqFHLjuc http://<awsurl>/api/v1/point/-12.0589/-77.0559/
+ -u admin:password http://<awsurl>/api/v1/point/-12.0589/-77.0559/
 ```
